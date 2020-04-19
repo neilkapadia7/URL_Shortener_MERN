@@ -1,0 +1,21 @@
+{
+	"name": "url_shortener_mern",
+	"version": "1.0.0",
+	"description": "URL Shortener Service",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server",
+		"server": "nodemon server"
+	},
+	"author": "Neil Neyatech",
+	"license": "ISC",
+	"dependencies": {
+		"config": "^3.3.1",
+		"express": "^4.17.1",
+		"mongoose": "^5.9.9"
+	},
+	"devDependencies": {
+		"concurrently": "^5.1.0",
+		"nodemon": "^2.0.3"
+	}
+}

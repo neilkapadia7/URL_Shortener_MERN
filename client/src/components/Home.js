@@ -3,7 +3,7 @@ import UrlContext from "../urlContext/urlContext";
 
 const Home = () => {
 	const urlContext = useContext(UrlContext);
-	const { setShortUrl } = urlContext;
+	const { setShortUrl, loading, url } = urlContext;
 
 	const [longUrl, setUrl] = useState("");
 
@@ -13,8 +13,14 @@ const Home = () => {
 			console.log("Please Enter a URL");
 		} else {
 			setShortUrl({ longUrl: longUrl });
+			setUrl("");
 		}
 	};
+
+	if (loading === true) {
+		return <h1>Loading...</h1>;
+	}
+
 	return (
 		<div>
 			<h1>Home</h1>
@@ -27,6 +33,14 @@ const Home = () => {
 				/>
 				<input type='submit' value='Submit' />
 			</form>
+
+			{!loading && url !== null ? (
+				<a href={url.shortUrl} target='_blank'>
+					{url.shortUrl}
+				</a>
+			) : (
+				""
+			)}
 		</div>
 	);
 };
